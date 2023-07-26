@@ -1,0 +1,14 @@
+{
+  "name": "learn_cypress",
+  "version": "1.0.0",
+  "description": "learn cypress course automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Guzmán",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.17.2"
+  }
+}
