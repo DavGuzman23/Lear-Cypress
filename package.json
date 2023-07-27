@@ -11,5 +11,8 @@
   "devDependencies": {
     "@cypress/xpath": "^2.0.3",
     "cypress": "^12.17.2"
+  },
+  "dependencies": {
+    "chai": "^4.3.7"
   }
 }
