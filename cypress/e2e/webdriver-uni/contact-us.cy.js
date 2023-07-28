@@ -11,6 +11,7 @@ describe("Test contact us form via WebdriverUni", () => {
         cy.get('[name="email"]').type('David@hotmail.com');
         cy.get('textarea.feedback-input').type('sadfasdfasdfasdf');
         cy.get('[type="submit"]').click();
+        cy.get('h1').should('have.text', 'Thank You for your Message!');
 
     });
 
@@ -23,6 +24,7 @@ describe("Test contact us form via WebdriverUni", () => {
         cy.get('[name="last_name"]').type('Guzman');
         cy.get('textarea.feedback-input').type('sadfasdfasdfasdf');
         cy.get('[type="submit"]').click();
+        cy.get('body').contains('Error: all fields are required');
 
     });
 
