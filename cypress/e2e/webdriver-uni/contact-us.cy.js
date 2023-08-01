@@ -2,7 +2,7 @@
 //const { describe } = require("mocha");
 
 describe("Test contact us form via WebdriverUni", () => {
-    it.only("Should be able to submit a succesful submission via contact us form", () => {
+    it("Should be able to submit a succesful submission via contact us form", () => {
 
         cy.visit('http://www.webdriveruniversity.com/Contact-Us/contactus.html');
         cy.document().should('have.property', 'charset').and('eq', 'UTF-8');
