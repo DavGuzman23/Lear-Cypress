@@ -15,6 +15,8 @@ describe("Test contact us form via Automation Test Store", () => {
 
         //assertion
         cy.get('.mb40 > :nth-child(3)').should('have.text', 'Your enquiry has been successfully sent to the store owner!');
+        //Escribe logs en la ejecucion.
+        cy.log('Test has complited');
 
     });
 
