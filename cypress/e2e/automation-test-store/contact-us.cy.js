@@ -5,7 +5,12 @@ describe("Test contact us form via Automation Test Store", () => {
     it("Should be able to submit a succesful submission via contact us form", () => {
 
         cy.visit('https://www.automationteststore.com/');
-        cy.get('ul[class="info_links_footer"] > :nth-child(5)').click();
+        cy.get('.pull-left')
+        .contains('Contact Us')
+        .click()
+        .then((linkText) => {
+            cy.log('Clicked on link used text: ' + linkText.text())
+        });
         //cy.xpath('//a[contains(@href, "contact")]').click();
         cy.get('#ContactUsFrm_first_name').type('David');
         cy.get('#ContactUsFrm_email').type('David@daVID.com')
