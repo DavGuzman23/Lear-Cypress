@@ -19,7 +19,6 @@ describe("Inspect automation test store items using chain of commands", () => {
             cy.log('Selected the following item: ' + itemHeaderText.text())
         });
 
-
     });
 
     it("Click on the first item using index", () => {

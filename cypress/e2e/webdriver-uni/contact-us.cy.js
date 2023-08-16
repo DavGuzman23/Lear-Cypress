@@ -19,7 +19,6 @@ describe("Test contact us form via WebdriverUni", () => {
     });
 
     //it.only para ejecutar solo el test al que se lo pongas
-
     it("Should not be able to submit a succesful submission via contact us form ass all fields are required", () => {
 
         cy.visit('http://www.webdriveruniversity.com/Contact-Us/contactus.html');

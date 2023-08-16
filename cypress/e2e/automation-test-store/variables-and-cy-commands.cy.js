@@ -37,7 +37,6 @@ describe("Verifying variables, cypress commands and jquery commands", () => {
             cy.log('Found header text: ' + headerText);
             expect(headerText).is.eq('Makeup');
         })
-
     });
 
     it.only("Validate properties of the Contact us page", () => {
@@ -61,7 +60,5 @@ describe("Verifying variables, cypress commands and jquery commands", () => {
                 cy.log(fnText);
             })
         });
-
     });
-
 })
