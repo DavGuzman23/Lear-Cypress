@@ -19,11 +19,13 @@ describe("Iterate over elements", () => {
         cy.get("a[href*='product/category&path=']").contains('Hair Care').click();
         cy.get('.fixed_wrapper .prdocutname')
         .each(($el, index, $list) => {
+            cy.log('we find ' + $list.length + ' elements');
             $el.text().includes('Curls to straight Shampoo') 
-            //if
+            //if condition
             ? cy.wrap($el).click()
             //else
-            : cy.log(cy.log('Index: ' + index + ' : ' + $el.text()))
+            : cy.log(cy.log('Index: ' + index + ' : ' + $el.text()));
+            
         })
     })
 })
