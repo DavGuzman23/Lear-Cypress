@@ -15,6 +15,22 @@ describe("Alias and invoke", () => {
         .its('length')
         // be.gr = Mas grande que 
         .should('be.gt', 5);
-
+        cy.get('@productThumbnail')
+        .should('include', 'Seaweed Conditioner')
     });
+
+    it.only("Validate product thumbnail", () => {
+
+        cy.visit('https://automationteststore.com/');
+        cy.get('.thumbnail')
+        .as('productlist');
+        cy.get('@productlist')
+        .should('have.length', 16);
+        cy.get('@productlist')
+        .find('.productcart')
+        .invoke('attr', 'title')
+        .should('include', 'Add to Cart');
+        
+    });
+
 })
