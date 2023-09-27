@@ -48,11 +48,6 @@ describe("Alias and invoke", () => {
         .invoke('text')
         .as('itemPrice');
 
-        cy.get('.thumbnail')
-        .find('.pricenew')
-        .invoke('text')
-        .as('saleItemPrice');
-
         var itemsTotal = 0;
         cy.get('@itemPrice')
         .then($linktext => {
@@ -73,7 +68,12 @@ describe("Alias and invoke", () => {
             cy.log('Non sale price item total: ' + itemsPriceTotal);
         })
 
-        //Iteraccion sobre todos los productos con descuento para conseguir su nuevo valor tras el descuento
+         //Iteraccion sobre todos los productos con descuento para conseguir su nuevo valor tras el descuento
+        cy.get('.thumbnail')
+        .find('.pricenew')
+        .invoke('text')
+        .as('saleItemPrice');
+
         cy.get('@saleItemPrice')
         .then($linktext => {
             var newsaleItemsPrice = 0;
@@ -85,7 +85,6 @@ describe("Alias and invoke", () => {
             }
             itemsTotal += newsaleItemsPrice
             cy.log('New sale price item total: ' + newsaleItemsPrice);
-            
         })
         .then(() => {
             cy.log('Sale price item total: ' + itemsTotal);
