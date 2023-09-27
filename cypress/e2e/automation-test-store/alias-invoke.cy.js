@@ -32,7 +32,7 @@ describe("Alias and invoke", () => {
         .should('include', 'Add to Cart');
     });
 
-    it("Calculate total of normal and sale products", () => {
+    it.only("Calculate total of normal and sale products", () => {
 
         cy.visit('https://automationteststore.com/');
         cy.get('.thumbnail')
@@ -47,20 +47,30 @@ describe("Alias and invoke", () => {
         .find('.oneprice')
         .invoke('text')
         .as('itemPrice');
+
+        cy.get('.thumbnail')
+        .find('.pricenew')
+        .invoke('text')
+        .as('saleItemPrice');
+
+        var itemsTotal = 0;
         cy.get('@itemPrice')
         .then($linktext => {
+            var itemsPriceTotal = 0;
             var itemPrice = $linktext.split('$');
             var i;
             for(i = 0; i < itemPrice.length; i++){
-                /* Interaccion
+                /*Interaccion
                 [0] - test
                 [1] - test
                 [2] - test
                 [3] - test
                 [4] - test*/
                 cy.log(itemPrice[i])
+                itemsPriceTotal += Number(itemPrice[i])
             }
+            itemsTotal += itemsPriceTotal;
+            cy.log('Non sale price item total: ' + itemsPriceTotal);
         })
     });
-
 })
