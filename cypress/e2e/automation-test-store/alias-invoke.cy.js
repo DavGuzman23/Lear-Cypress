@@ -72,5 +72,24 @@ describe("Alias and invoke", () => {
             itemsTotal += itemsPriceTotal;
             cy.log('Non sale price item total: ' + itemsPriceTotal);
         })
+
+        //Iteraccion sobre todos los productos con descuento para conseguir su nuevo valor tras el descuento
+        cy.get('@saleItemPrice')
+        .then($linktext => {
+            var newsaleItemsPrice = 0;
+            var newsaleItemPrice = $linktext.split('$');
+            var i;
+            for(i = 0; i < newsaleItemPrice.length; i++){
+                cy.log(newsaleItemPrice[i])
+                newsaleItemsPrice += Number(newsaleItemPrice[i])
+            }
+            itemsTotal += newsaleItemsPrice
+            cy.log('New sale price item total: ' + newsaleItemsPrice);
+            
+        })
+        .then(() => {
+            cy.log('Sale price item total: ' + itemsTotal);
+            expect(itemsTotal).to.equal(660.5)
+        })
     });
 })
