@@ -11,6 +11,7 @@ describe("Handleing iFrame and Modals", () => {
 
         cy.get('#frame')
         .then($iframe => {
+            //Entramos en el body del iframe
             const body = $iframe.contents().find('body')
             cy.wrap(body).as('iframe')
         })
@@ -23,7 +24,8 @@ describe("Handleing iFrame and Modals", () => {
         .find('#myModal')
         .as('modal')
 
-        cy.get('@modal').should(($expectedText) =>{
+        cy.get('@modal').should(($expectedText) => {
+            //Entramos en el modal para verficar que el texto que contiene es el esperado
             const text = $expectedText.text();
             expect(text).to.include('Welcome to webdriveruniversity.com we sell a wide range of electrical goods')
         })
