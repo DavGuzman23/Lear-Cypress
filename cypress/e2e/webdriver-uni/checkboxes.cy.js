@@ -49,7 +49,5 @@ describe("Verify checkboxes via Wwbdriveruni", () => {
         //Checkea solo los que tienen ese atributo
         cy.get('input[type="checkbox"]').check(['option-1', 'option-2'])
         .should('be.checked')
-
-
     });
 })
