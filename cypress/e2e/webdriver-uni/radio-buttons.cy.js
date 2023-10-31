@@ -37,7 +37,5 @@ describe("Verify radio buttons via webdriveruni", () => {
         cy.get('[value="cabbage"]').should('be.disabled')
         
         //cy.get('#radio-buttons-selected-disabled')
-
-
     });
 });
